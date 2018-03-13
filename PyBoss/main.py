@@ -2,20 +2,18 @@ import csv
 import datetime
 filepath= "D:\Data_Science\GW-DataAnalytics\HomeWork\Python\Python_Challenge\PyBoss\employee_data1.csv"
 
-with open(filepath, 'r',newline="") as file:
+with open(filepath,newline="") as file:
     reader = csv.reader(file,delimiter=",")
     
     Formated_Employee_Data=[]
     Employee_Id=[]
-    Full_Name=[]
     First_Name=[]
     last_Name=[]
     DOB_Old=[]
     DOB=[]
-    Full_SSN=[]
     SSN=[]
     State=[]
-    #newcsvdict = {"Employee_Id":[],"first name": [], "last name": [],"DOB":[] "SSN":[],"state":[]}
+    
     us_state_abbrev = {
     'Alabama': 'AL', 'Alaska': 'AK','Arizona': 'AZ','Arkansas': 'AR','California': 'CA','Colorado': 'CO','Connecticut': 'CT','Delaware': 'DE','Florida': 'FL', 'Georgia': 'GA',
     'Hawaii': 'HI','Idaho': 'ID','Illinois': 'IL','Indiana': 'IN','Iowa': 'IA','Kansas': 'KS','Kentucky': 'KY','Louisiana': 'LA','Maine': 'ME', 'Maryland': 'MD',
@@ -30,27 +28,21 @@ with open(filepath, 'r',newline="") as file:
         Full_Name= row[1].split()
 
         
-        First_Name.append(Full_Name[0])
-        last_Name.append(Full_Name[0])
+        First_Name.append(Full_Name[0:])
+        last_Name.append(Full_Name[1:])
         
         DOB_Old=datetime.datetime.strptime(row[2],'%Y-%m-%d')
         DOB.append(DOB_Old)
 
-        FullSSN= row[3].split("-")
-        SSN.append(FullSSN[2])
-        #newcsv["first name"].append(first)
-        #newcsv["last name"].append(last)
+        FullSSN= [row[3].split("-")]
+        SSN.append(FullSSN[-1])
+        
 
         
         if row[4]==us_state_abbrev.keys():
             State= us_state_abbrev.values()
-
+        #Merging all the columns
         Formated_Employee_Data.append([Employee_Id,First_Name,last_Name, DOB,SSN,State])
         print(Formated_Employee_Data)
-#with open('new.csv', 'w') as f:
-   # w = csv.DictWriter(f, newcsvdict.keys())
-    #w.writeheader()
+        #with open(Formated_Employee_Data,'w',newline="")
 
-    #w.writerows(newcsvdict)
-
-    

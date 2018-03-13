@@ -2,34 +2,35 @@ import csv
 
 
    #import CSV files.
-   csvpath = "budget_data_2.csv"
-   resultsfile= "Financial_Analysis.txt"
+Filepath = "D:\\Data_Science\\GW-DataAnalytics\\HomeWork\\Python\\Python_Challenge\\PyBank\\budget_data_2.csv"
+   
 
    
 
-with open(csvpath, newline="") as csvfile:
+with open(filepath, newline="") as csvfile:
      csvreader = csv.reader(csvfile, delimiter=",")
 
-     #Empty Lists to store data.
+     #Initiatng Lists .
+   Months=0
    Total_No_months = []
    Total_Revenue = []
    Average_Revenue_Change = []
    Greatest_Revenue_Increase = []
    Greatest_Revenue_Decrease= []
-        #total month
-  for rows in csvreader: 
-      numMonths= 0
-        #Add months to counter
-      numMonths += 1
         
-        #The total number of months included in the dataset.
-      total_months.append(numMonths)
-        print(numMonths) 
+  for rows in csvreader: 
+      
+        #Add months to counter
+      Months += 1
+        
+        #The total number of months .
+      Total_No_months.append(Months)
+        
     
-        #The total amount of revenue gained over the entire period.
+        #calculating the total revenue.
       revenue = sum(int(row[1]))
-      total_revenue.append(revenue)
-      print(revenue)       
+      Total_revenue.append(revenue)
+            
     
       #The average change in revenue between months over the entire period
       average = revenue/numMonths
