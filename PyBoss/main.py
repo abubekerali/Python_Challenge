@@ -24,7 +24,7 @@ with open(filepath,newline="") as file:
     'Rhode Island': 'RI','South Carolina': 'SC','South Dakota': 'SD','Tennessee': 'TN','Texas': 'TX','Utah': 'UT','Vermont': 'VT','Virginia': 'VA', 'Washington': 'WA',
     'West Virginia': 'WV','Wisconsin': 'WI','Wyoming': 'WY',}
     #to escape the first row or header
-        next(reader)
+    next(reader)
     
     for row in reader:
         
@@ -47,5 +47,7 @@ with open(filepath,newline="") as file:
         #Merging all the columns
         Formated_Employee_Data.append([Employee_Id,First_Name,last_Name, DOB,SSN,State])
         print(Formated_Employee_Data)
-        
-
+        #to write the edited file as csv file
+with open(Formated_Employee_Data.csv,'w') as outputfile:
+    outputfile.writewrow(["Employee_Id","First_Name","last_Name", "DOB","SSN","State"])
+    outputfile.writerows(Formated_Employee_Data)

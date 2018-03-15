@@ -53,3 +53,9 @@ for i in range(len(csvreader)-1):
           Greatest_Revenue_Decrease= min(revenue_change)
           Greatest_revenue_increase_month= csvreader[i+1][0]
 
+with open("Financial_Analysis.txt", "w") as text_file:
+    text_file.write("Total months: %s" % Total_No_months)
+    text_file.write("Total Revenue: %s" % Total_Revenue )
+    text_file.write("Average Revenue Change: %s" % Average_Revenue_Change )
+    text_file.write("Greatest increase in revenue: %s" % Greatest_revenue_increase_month )
+    text_file.write("Greatest Decrease in revenue: %s" % Greatest_revenue_Decrease_month )
